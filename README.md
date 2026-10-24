@@ -11,7 +11,7 @@ Agent skills I've tried. They're written up from methods I use. Treat them as ex
 
 | Skill | What it does |
 |---|---|
-| [generate-creative-ideas](skills/generate-creative-ideas/SKILL.md) | Generates creative ideas or design directions, using a long random alphanumeric string as a source of associations. |
+| [generate-creative-ideas](skills/generate-creative-ideas/SKILL.md) | Generates creative ideas or design directions, using a long random alphanumeric string as a source of associations. Adapted from a prompt in [Lenny's Newsletter](https://www.lennysnewsletter.com/p/how-to-turn-your-ai-into-a-world). |
 | [analyse-bug-report](skills/analyse-bug-report/SKILL.md) | Turns a user-reported bug into four findings: why it was introduced and why it escaped testing, each for this instance and for its class (the bug 2×2). |
 | [validate-testing-improvement](skills/validate-testing-improvement/SKILL.md) | Uses bugs a human already found as a blind answer key, to check whether a testing method rediscovers them without hints. |
 | [heat-map-system-testing](skills/heat-map-system-testing/SKILL.md) | Runs system testing from a product risk heat map: picks the next charter, folds results back into the map, and stops testing when the map runs out of risk. |
@@ -21,6 +21,7 @@ Agent skills I've tried. They're written up from methods I use. Treat them as ex
 | [define-ooda-loop](skills/define-ooda-loop/SKILL.md) | Sets up a standing agent OODA loop over one named object, with its own evidence and re-run trigger. |
 | [run-ooda-loop](skills/run-ooda-loop/SKILL.md) | Runs one OODA improvement cycle on a miss, regression or correction, keeping a trace as it goes. |
 | [test-interview-with-user-sims](skills/test-interview-with-user-sims/SKILL.md) | Regression-tests an interview-style skill by running live conversations against simulated users. |
+| [diagnosing-bugs](skills/diagnosing-bugs/SKILL.md) | Diagnoses a defect whose cause is unknown, keeping a lab notebook of every attempt, and finishes by asking why existing checks missed it. Adapted from [Matt Pocock's skill](https://github.com/mattpocock/skills) (MIT). |
 
 ## Install
 
@@ -36,4 +37,4 @@ and user-sim scripts need Node. `enumerate-ui.mjs` and `drive-app.mjs` also need
 
 ## Licence
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). Adapted skills keep their upstream licence in their own folder.
