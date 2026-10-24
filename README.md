@@ -11,6 +11,7 @@ Agent skills I've tried. They're written up from methods I use. Treat them as ex
 
 | Skill | What it does |
 |---|---|
+| [generate-creative-ideas](skills/generate-creative-ideas/SKILL.md) | Generates creative ideas or design directions, using a long random alphanumeric string as a source of associations. |
 | [analyse-bug-report](skills/analyse-bug-report/SKILL.md) | Turns a user-reported bug into four findings: why it was introduced and why it escaped testing, each for this instance and for its class (the bug 2×2). |
 | [validate-testing-improvement](skills/validate-testing-improvement/SKILL.md) | Uses bugs a human already found as a blind answer key, to check whether a testing method rediscovers them without hints. |
 | [heat-map-system-testing](skills/heat-map-system-testing/SKILL.md) | Runs system testing from a product risk heat map: picks the next charter, folds results back into the map, and stops testing when the map runs out of risk. |
