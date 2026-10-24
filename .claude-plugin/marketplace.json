@@ -1,0 +1,14 @@
+{
+  "name": "qings-skills-lab",
+  "owner": {
+    "name": "Yanqing Cheng"
+  },
+  "description": "Experimental agent skills by Yanqing Cheng. Potentially untested.",
+  "plugins": [
+    {
+      "name": "qings-skills-lab",
+      "source": "./",
+      "description": "Experimental agent skills for testing, review and improvement loops. Potentially untested."
+    }
+  ]
+}

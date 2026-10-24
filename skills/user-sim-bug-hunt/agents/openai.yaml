@@ -1,0 +1,4 @@
+interface:
+  display_name: "User-sim bug hunt"
+  short_description: "Hunt bugs as a spec-blind, determined first-time user."
+  default_prompt: "Use $user-sim-bug-hunt to hunt bugs in this app as a first-time user."

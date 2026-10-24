@@ -1,0 +1,4 @@
+interface:
+  display_name: "Heat-map system testing"
+  short_description: "Charter system tests from a risk heat map until it is dry."
+  default_prompt: "Use $heat-map-system-testing to run system testing on this product until the heat map is dry."

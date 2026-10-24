@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test interview skill with user sims"
+  short_description: "Regression-test an interviewing skill with simulated users."
+  default_prompt: "Use $test-interview-with-user-sims to regression-test this interview skill against its eval table."

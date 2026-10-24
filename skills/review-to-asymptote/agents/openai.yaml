@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review to Asymptote"
+  short_description: "Review and fix until the caller or an independent judge sees no meaningful issues"
+  default_prompt: "Use $review-to-asymptote to review and fix this until fresh reviews stop finding meaningful issues."

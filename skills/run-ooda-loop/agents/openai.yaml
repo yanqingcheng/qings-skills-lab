@@ -1,0 +1,6 @@
+interface:
+  display_name: "Run OODA Loop"
+  short_description: "Run one evidence-backed improvement cycle"
+  default_prompt: "Use $run-ooda-loop to execute one improvement cycle over the named object."
+policy:
+  allow_implicit_invocation: false

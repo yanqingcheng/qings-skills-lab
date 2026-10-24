@@ -1,0 +1,221 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "product-map.schema.json",
+  "title": "Product heat map",
+  "description": "A persistent decomposition of a product -- surfaces -> panels -> controls -- where each node carries live test evidence (traversals, bugsFound, dryStreak, heat). Readable without any tool. Judgment lives in the heat-map-system-testing skill; update-map.mjs does the counting. validate-map.mjs is authoritative: it reports fields not declared here (additionalProperties: false) as warnings, not errors, so hand-added fields in older maps still load.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "app",
+    "builtFrom",
+    "nodes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "app": {
+      "type": "string",
+      "description": "App name this map covers."
+    },
+    "builtFrom": {
+      "type": "string",
+      "description": "Git ref / build id the map was walked against (resumability anchor)."
+    },
+    "mappedAt": {
+      "type": "string",
+      "description": "ISO timestamp of the initial walk. Stamped by tooling."
+    },
+    "lastUpdated": {
+      "type": "string",
+      "description": "ISO timestamp of the last fold. Stamped by tooling."
+    },
+    "converged": {
+      "type": "boolean",
+      "description": "True when every leaf is cold. Computed by update-map.mjs. Evidence for the dry declaration, not the declaration itself."
+    },
+    "qualities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Quality priorities from the project's quality strategy that this map tracks (e.g. 'security', 'accessibility', 'data-integrity'). Node 'qualities' must be drawn from this list."
+    },
+    "charterIdeas": {
+      "type": "array",
+      "description": "Open risk areas and charter ideas not yet run: hunter 'flows to test next', problem areas, review concerns. Remove an idea once chartered or judged low-risk.",
+      "items": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Node ids the idea would exercise."
+          },
+          "source": {
+            "type": "string",
+            "description": "Where the idea came from (hunt report, review, user report, change)."
+          }
+        }
+      }
+    },
+    "folded": {
+      "type": "array",
+      "description": "Ledger of evidence refs already folded (bug ids, hunt report ids). update-map.mjs refuses to fold a ref twice.",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "at": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Top-level surfaces. Each may nest panels and controls via children.",
+      "items": {
+        "$ref": "#/definitions/node"
+      }
+    }
+  },
+  "definitions": {
+    "node": {
+      "type": "object",
+      "description": "A newly added node may omit traversals, bugsFound, dryStreak and heat; update-map.mjs fills them in on its next run, and validate-map.mjs requires them once a fold has run.",
+      "required": [
+        "id",
+        "label",
+        "kind"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Stable unique id, e.g. 'surface:settings', 'panel:sidebar', 'control:export-btn', 'control:init--force'."
+        },
+        "label": {
+          "type": "string",
+          "description": "What a user sees or types: the UI label, route, command, flag or endpoint."
+        },
+        "kind": {
+          "enum": [
+            "surface",
+            "panel",
+            "control"
+          ],
+          "description": "surface = an entry point a user reaches (window, page/route, command, endpoint group); panel = a region or sub-area within it; control = one thing a user acts on (button, field, menu item, flag, argument, endpoint)."
+        },
+        "affordance": {
+          "type": "string",
+          "description": "For controls: the kind of affordance (button, menu, dropdown, tab, input, toggle, drag-handle, link, flag, argument, endpoint, ...)."
+        },
+        "dimensions": {
+          "type": "array",
+          "description": "SFDIPOT product elements in play beyond 'it exists and does its basic job' (e.g. an input carries 'data'; a mode toggle carries 'operations'+'time'; anything that persists or calls a backend carries 'interfaces'). An un-probed dimension keeps a leaf from going cold (Heat table in SKILL.md).",
+          "items": {
+            "enum": [
+              "structure",
+              "function",
+              "data",
+              "interfaces",
+              "platform",
+              "operations",
+              "time"
+            ]
+          }
+        },
+        "qualities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Quality priorities (from top-level 'qualities') that are a live risk at this node. An un-probed quality keeps a leaf from going cold (Heat table in SKILL.md)."
+        },
+        "probed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Dimensions and qualities a charter has actually exercised here since the last change. Maintained by update-map.mjs from fold entries."
+        },
+        "traversals": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "How many charters have exercised this node. Folds name leaves, so parent counters stay 0."
+        },
+        "bugsFound": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Cumulative new bugs attributed to this node, from hunts or any other source."
+        },
+        "dryStreak": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Consecutive walks with no new bug here since the last bug or change."
+        },
+        "heat": {
+          "enum": [
+            "unknown",
+            "hot",
+            "warm",
+            "cold"
+          ],
+          "description": "Computed by update-map.mjs from the Heat table in the heat-map-system-testing SKILL.md; a leaf's heatOverride wins, and a parent takes its hottest leaf."
+        },
+        "heatOverride": {
+          "type": "object",
+          "required": [
+            "heat",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "description": "Leaves only. The driver's judgment when evidence-based heat is wrong (e.g. a clean but fragile area stays warm). update-map.mjs honours it until new bugs or a change clear it; delete it sooner when its reason lapses.",
+          "properties": {
+            "heat": {
+              "enum": [
+                "unknown",
+                "hot",
+                "warm",
+                "cold"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "notes": {
+          "type": "string",
+          "description": "Free text: heat overrides and why, parked known bugs, attribution uncertainty, why an unwalked area is judged low-risk, what could not be reached."
+        },
+        "children": {
+          "type": "array",
+          "description": "Nested panels/controls. A node with no children is a leaf; heat and convergence are computed over leaves.",
+          "items": {
+            "$ref": "#/definitions/node"
+          }
+        }
+      }
+    }
+  }
+}

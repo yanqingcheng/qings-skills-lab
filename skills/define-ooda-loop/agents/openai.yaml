@@ -1,0 +1,4 @@
+interface:
+  display_name: "Define OODA Loop"
+  short_description: "Define a standing, self-observing agentic OODA loop"
+  default_prompt: "Use $define-ooda-loop to define an OODA loop over the named object."

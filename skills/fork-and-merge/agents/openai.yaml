@@ -1,0 +1,6 @@
+interface:
+  display_name: "Fork and Merge"
+  short_description: "Run a task as blind parallel copies, then judge and merge"
+  default_prompt: "Use $fork-and-merge to run this task as independent copies and merge the best result."
+policy:
+  allow_implicit_invocation: false
