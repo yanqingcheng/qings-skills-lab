@@ -22,6 +22,7 @@ Agent skills I've tried. They're written up from methods I use. Treat them as ex
 | [run-ooda-loop](skills/run-ooda-loop/SKILL.md) | Runs one OODA improvement cycle on a miss, regression or correction, keeping a trace as it goes. |
 | [test-interview-with-user-sims](skills/test-interview-with-user-sims/SKILL.md) | Regression-tests an interview-style skill by running live conversations against simulated users. |
 | [diagnosing-bugs](skills/diagnosing-bugs/SKILL.md) | Diagnoses a defect whose cause is unknown, keeping a lab notebook of every attempt, and finishes by asking why existing checks missed it. Adapted from [Matt Pocock's skill](https://github.com/mattpocock/skills) (MIT). |
+| [tidy-house](skills/tidy-house/SKILL.md) | Describes what a tidy project looks like and why, for putting a cluttered project back in order: like with like, one owner per fact, only live things on the live path. Borrows from Marie Kondo. |
 
 ## Install
 
