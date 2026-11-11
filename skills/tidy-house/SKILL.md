@@ -29,7 +29,9 @@ Guidance has homes too, and much clutter comes from putting it in the wrong one.
 needs it and when.
 
 - **Instruction file** (`CLAUDE.md`, `AGENTS.md`): what every agent in the project needs on
-  every task. It is read every time, so it stays short and points to the rest.
+  every task: what the project is, where things are and how to work there. It is read every
+  time, so it stays short, points to the rest, and leaves out status and progress, which go
+  stale; those belong in the tracker or a handoff.
 - **Skill:** how to do a kind of task that comes up at a recognisable moment, here or in
   other projects.
 - **Documentation:** facts about the project: what it is for, how it is built, what was
