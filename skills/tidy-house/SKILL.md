@@ -1,6 +1,6 @@
 ---
 name: tidy-house
-description: Put a project back in order so anyone can see what is live, where things belong and what is finished. Use when asked to tidy, organise or clean up a project, or when its clutter is getting in the way of the work.
+description: Put a project back in order so anyone can see what is live, where things belong and what is finished. Use when asked to tidy, organise or clean up a project, or when things out of place keep tripping you up.
 ---
 
 # Tidy house
@@ -11,14 +11,35 @@ choose what to keep, and give everything that stays a home. Her test is whether 
 sparks joy; here it is whether anyone still uses it.
 
 This describes what tidy looks like and why. It is not a procedure: where something does
-not fit the project in front of you, do what serves its readers.
+not fit the project in front of you, do what serves its readers. If the project is already
+easy to find your way around, there may be little or nothing to do; say so and leave it.
 
-## Start with the instruction files
+## Start with what every agent reads
 
 The project's `CLAUDE.md` or `AGENTS.md` sets the tone for everyone. Every agent reads it
 first and copies its habits, so a confused one produces mess faster than anyone can clear
-it. If it is in bad shape, begin there. Where fixing it means deciding what the project is
-for, bring that to the person you work for.
+it. Agent memories and carried-over notes work the same way, and they age faster: a
+caution written for a problem since fixed, or a pointer to something retired, keeps
+steering every later session. If either is in bad shape, begin there. Where fixing them
+means deciding what the project is for, bring that to the person you work for.
+
+## Where guidance belongs
+
+Guidance has homes too, and much clutter comes from putting it in the wrong one. Ask who
+needs it and when.
+
+- **Instruction file** (`CLAUDE.md`, `AGENTS.md`): what every agent in the project needs on
+  every task. It is read every time, so it stays short and points to the rest.
+- **Skill:** how to do a kind of task that comes up at a recognisable moment, here or in
+  other projects.
+- **Documentation:** facts about the project: what it is for, how it is built, what was
+  decided and why. Docs are for people as well as agents, and they own the facts; other
+  files link to them.
+- **Memory:** what one agent has learned that has no better home yet. Memory is a cache.
+  Only that agent's harness reads it, so anything teammates need belongs in one of the
+  other three.
+- **The bin:** guidance for a problem since fixed, a rule nobody can explain, or anything
+  a capable agent would do unprompted.
 
 ## What tidy looks like
 
