@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Spell"
+  short_description: "Phrase guidance as a known phrase or a plain description"
+  default_prompt: "Use $write-spell to phrase this guidance for agents."

@@ -3,9 +3,9 @@
 Agent skills I've tried. They're written up from methods I use. Treat them as experiments.
 
 > **Potentially untested.** Each skill has been reviewed as text, and some have been run a few
-> times. None has passed a behavioural evaluation, which would compare runs with and without the
-> skill on real cases. Expect rough edges, and don't rely on any of them without checking the
-> results yourself.
+> times. Only write-spell has had a behavioural evaluation, which compares runs with and without
+> the skill, and that one was small. Expect rough edges, and don't rely on any of them without
+> checking the results yourself.
 
 ## Skills
 
@@ -21,6 +21,7 @@ Agent skills I've tried. They're written up from methods I use. Treat them as ex
 | [define-ooda-loop](skills/define-ooda-loop/SKILL.md) | Sets up a standing agent OODA loop over one named object, with its own evidence and re-run trigger. |
 | [run-ooda-loop](skills/run-ooda-loop/SKILL.md) | Runs one OODA improvement cycle on a miss, regression or correction, keeping a trace as it goes. |
 | [test-interview-with-user-sims](skills/test-interview-with-user-sims/SKILL.md) | Regression-tests an interview-style skill by running live conversations against simulated users. |
+| [write-spell](skills/write-spell/SKILL.md) | Phrases reusable guidance for agents as a spell: a short phrase the model already knows from training, such as "spark joy" or "shotgun surgery", checked by a cold read from a fresh agent. Where no known phrase fits, it describes the thing plainly. |
 | [diagnosing-bugs](skills/diagnosing-bugs/SKILL.md) | Diagnoses a defect whose cause is unknown, keeping a lab notebook of every attempt, and finishes by asking why existing checks missed it. Adapted from [Matt Pocock's skill](https://github.com/mattpocock/skills) (MIT). |
 | [tidy-house](skills/tidy-house/SKILL.md) | Describes what a tidy project looks like and why, for putting a cluttered project back in order: like with like, one owner per fact, only live things on the live path. Borrows from Marie Kondo. |
 
