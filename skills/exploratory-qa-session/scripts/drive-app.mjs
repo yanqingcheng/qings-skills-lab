@@ -1,4 +1,4 @@
-// Launch-and-screenshot plumbing for user-sim-bug-hunt. Mechanical only: it never judges findings.
+// Launch-and-screenshot plumbing for exploratory-qa-session. Mechanical only: it never judges findings.
 // Drives a web app (URL) in Chromium or an Electron app (built main entry) through Playwright.
 // CLI apps need no harness: run real commands in a shell or pty.
 //

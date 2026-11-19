@@ -212,9 +212,8 @@ Keep the answer key out of any file that a later runner could read.
 These links are optional. The skill runs without them.
 
 - `analyse-bug-report` passes a missing-test-surface finding here as the candidate to validate.
-- `user-sim-bug-hunt` is the usual candidate method for UI products. Its interaction-grade mode
-  drives the interface as a person does: it types each character, clicks visible controls and
-  works around blockers.
+- `exploratory-qa-session` is the usual candidate method for UI products. It drives the interface
+  as a person does: it types each character, clicks visible controls and works around blockers.
 
 ## Evidence so far
 

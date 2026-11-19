@@ -13,7 +13,7 @@
 //   await close()
 //
 // Run from a directory where playwright is installed (npm i -D playwright; npx playwright install
-// chromium for web targets). launch() deliberately duplicates user-sim-bug-hunt's drive-app.mjs so each skill stands alone.
+// chromium for web targets). launch() deliberately duplicates exploratory-qa-session's drive-app.mjs so each skill stands alone.
 
 import { mkdirSync, realpathSync } from 'node:fs'
 import { createRequire } from 'node:module'

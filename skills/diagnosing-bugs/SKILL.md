@@ -1,6 +1,6 @@
 ---
 name: diagnosing-bugs
-description: Diagnose a concrete software defect or performance regression whose cause is unknown. Use for explicit debugging or investigation of failing software behavior, not process criticism or a straightforward repair with a known cause.
+description: Diagnose a concrete software defect or performance regression whose cause is unknown. Use when asked to debug or diagnose something, or to find out why software is broken, failing, throwing or slow. Not for criticism of a process, or a straightforward repair whose cause is already known.
 ---
 
 # Diagnosing Bugs
@@ -13,7 +13,7 @@ When exploring the codebase, read `CONTEXT.md` (if it exists) for the relevant m
 
 Keep a durable record of what you tried, which hypotheses you held, and what evidence each probe returned. At the start of Phase 1, reuse an existing issue, investigation log, or notebook when it records those facts and can be retrieved by the next debugger. That record is the "notebook" throughout this skill.
 
-If no adequate record exists, open a notebook file (prefer a path the user names; otherwise `.scratch/diagnose-<short-slug>.md` or the repo's usual scratch location). Update the chosen record **before** leaving each phase and **after every probe**. Completion requires the diagnostic evidence below in that record; a separate file is unnecessary when an existing record contains it.
+If no adequate record exists, open a notebook file (prefer a path the user names; otherwise `.scratch/diagnose-<short-slug>.md` or the repo's usual scratch location). Update the chosen record **before** leaving each phase and **after every probe**. The diagnosis is not done until that record holds what Phase 6 asks of it.
 
 Each entry is one of:
 
@@ -21,11 +21,11 @@ Each entry is one of:
 - **Hypothesis** — ranked, falsifiable claim and its prediction (Phase 3); status `open` / `supported` / `ruled-out`.
 - **Evidence** — observation from a probe or the loop (what you saw, which hypothesis it bears on, verdict).
 
-Keep it chronological and short. Redact secrets (`<REDACTED>`). The notebook is what a later debugger, a handoff, or a compacted session reads to avoid re-doing ruled-out work.
+Keep it chronological and short. The notebook is what a later debugger, a handoff, or a compacted session reads to avoid re-doing ruled-out work.
 
 ## Redact
 
-Show commands, outputs, and captured artifacts only after redacting secrets. Build loops against env vars so credentials stay in the environment. Quote only the lines that carry signal.
+Before you show or record a command, output or captured artifact, replace each secret in it with `<REDACTED>`. Build loops against env vars so credentials stay in the environment. Quote only the lines that carry signal.
 
 ## Phase 1: Build a feedback loop
 
@@ -44,7 +44,7 @@ Spend disproportionate effort here. Be aggressive. Be creative. Refuse to give u
 7. Property / fuzz loop for "sometimes wrong" bugs.
 8. Bisection harness between two known-good/bad states.
 9. Differential loop (old vs new, or two configs).
-10. HITL script as last resort: copy the bundled [template](scripts/hitl-loop.template.sh), edit its steps for the symptom, and run the copy with `bash` in a terminal where the user can respond. Capture observations; leave signing in to the user. Treat the captured verdict as the loop's evidence, not the template's exit status.
+10. HITL script as last resort: copy the bundled [template](scripts/hitl-loop.template.sh), edit its steps for the symptom, and run the copy with `bash` in a terminal where the user can respond. Captured answers are printed back to you, so use `capture` for observations and make signing in a `step`. Treat the captured verdict as the loop's evidence, not the template's exit status.
 
 ### Tighten the loop
 
@@ -54,13 +54,13 @@ Non-deterministic bugs: raise reproduction rate until the bug is debuggable; log
 
 ### When you cannot build a loop
 
-Use source inspection and tentative hypotheses to design the next probe; label them unconfirmed.
+Use source inspection and tentative hypotheses to design the next probe; label them unconfirmed, and do not present an untested theory as the established cause.
 If execution is unavailable, report the missing prerequisite and the evidence already gathered.
 Ask for access or production instrumentation only when the next useful probe actually needs it.
 
 ### Done when
 
-You can name **one command** you have already run (show invocation + redacted output) that is red-capable on the user's exact symptom, deterministic (or high pinned repro rate), fast, and agent-runnable. No red-capable command, no Phase 2. Tentative hypotheses may guide probe design; do not present an untested theory as the established cause.
+You can name **one command** you have already run (show invocation + redacted output) that is red-capable on the user's exact symptom (it goes red on this bug, not merely on any error, and will go green once it is fixed), deterministic (or high pinned repro rate), fast, and agent-runnable. No red-capable command, no Phase 2.
 
 ## Phase 2: Reproduce + minimise
 
@@ -86,7 +86,7 @@ First inspect why existing checks missed the reproduced defect: absent coverage,
 fixture or assertion, a mock that bypasses the behavior, or a check that did not run. Repair the
 existing check when it can own the regression; add one only when protection is missing. The
 expectation must come from the intended outcome, and the check must fail on the reproduced fault.
-If no correct test boundary exists, record the architectural limitation.
+If no seam lets a test exercise the bug as it really occurs, record that architectural limitation in the notebook.
 
 Then: failing test → fix → pass → re-run the Phase 1 loop on the original scenario. Record the supported hypothesis and the decisive evidence in the notebook.
 

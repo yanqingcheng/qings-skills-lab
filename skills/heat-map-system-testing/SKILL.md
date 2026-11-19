@@ -4,7 +4,7 @@ description: >-
   Manage system testing across sessions from a product risk heat map: decide which area to charter
   next, fold each session's results and outside bug reports back into the map, and judge when
   testing can stop. Use to run a pre-release or post-change system-test campaign, build or update
-  the heat map, or pick the next test charter. The hands-on session itself is user-sim-bug-hunt.
+  the heat map, or pick the next test charter. The hands-on session itself is exploratory-qa-session.
 ---
 
 # Heat-map system testing
@@ -35,7 +35,7 @@ author's words, "the most productive vein to investigate".
 - **Map driver** (the runner of this skill): owns the map, writes charters, folds results, routes
   bugs, and declares the map dry. May read anything: source, specs, change history, the quality
   strategy.
-- **Hunter:** runs one charter as a first-time user with the `user-sim-bug-hunt` skill. The hunter
+- **Hunter:** runs one charter as a first-time user with the `exploratory-qa-session` skill. The hunter
   must not see the map, the run log, fold files, earlier hunt reports, target node ids, spec or
   source. These record where controls live and what earlier newcomers made of them, and a hunter who
   knows that can no longer judge whether a newcomer would find them. Dispatch the hunter as a
@@ -157,7 +157,7 @@ recompute.
 - **Name the angle:** one or two consistency oracles the area most plausibly violates, and/or the
   un-probed dimension or quality. Use FEW HICCUPPS (Michael Bolton and James Bach): Familiar problems,
   Explainability, World, History, Image, Comparable products, Claims, User expectations, Product,
-  Purpose, Standards and statutes (`user-sim-bug-hunt` explains each). Name only oracles that fit
+  Purpose, Standards and statutes (`exploratory-qa-session` explains each). Name only oracles that fit
   the area; the angle turns "poke this area" into "check whether it is inconsistent with X". Phrase
   it as what a user would try ("paste a long name, then reopen the project"), never by the control's
   name or location in the map.

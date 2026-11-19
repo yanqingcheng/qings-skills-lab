@@ -12,7 +12,9 @@ such as "spark joy" or "shotgun surgery". A good spell activates an existing par
 which can be more succinct than writing out the equivalent instructions.
 
 A spell can be the phrase alone, or the phrase followed by a line that says how to read it here:
-"No shotgun surgery. Here it applies to the data model itself, not only to code."
+"No shotgun surgery. Here it applies to the data model itself, not only to code." It can also sit
+in brackets beside wording that is already there, as a pointer: "What's the causality chain
+behind this happening? (5 Whys)".
 
 Where no known phrase carries the concept, don't make up a spell. It won't work. Describe the
 thing plainly instead.

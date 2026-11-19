@@ -14,15 +14,14 @@ It works because independent attempts make different mistakes. Agreement between
 not see each other is evidence; misses that do not overlap become coverage one pass lacks; and the
 judge can combine strengths that no single arm had.
 
-A `compare-candidates`-style skill is a
-rubric arena for one design or implementation problem. This skill applies to any class of prompt
-and adds shared snapshots, deliberate model mixing, forked judging and cost records.
+A `compare-candidates`-style skill is a rubric arena for one design or implementation problem.
+This skill adds shared snapshots, deliberate model mixing, forked judging and cost records.
 
 ## Decide whether to fork
 
-**If the user asked for a fork,** run it. Raise cost only when the budget is unclear, and then ask
-or propose a smaller fork. Fix the way you launch arms first if it is failing, because failed arms
-waste the whole fork.
+**If the user asked for a fork,** run it. Bring up cost only when the budget is unclear, and then
+ask or propose a smaller fork. Fix the way you launch arms first if it is failing, because failed
+arms waste the whole fork.
 
 **If you are considering a fork on your own initiative,** fork only within spend the user has
 already authorised, and only when a wrong or mediocre answer costs more than the extra runs and
@@ -100,8 +99,8 @@ wrong.
 ## Output
 
 1. **The merged result**, delivered where the task's output normally goes.
-2. **A fork record**, stored alongside the merged result. If the result is not a file, put the
-   record in the review's own output. The record contains:
+2. **A fork record**, stored alongside the merged result. If the result is not a file, deliver
+   the record with it. The record contains:
    - the snapshot or a pointer to it;
    - arm identities, dropouts and judge identities, noting any judge from the same family as an
      arm;

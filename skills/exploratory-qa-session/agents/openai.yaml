@@ -1,0 +1,4 @@
+interface:
+  display_name: "Exploratory QA session"
+  short_description: "Run one hands-on exploratory QA session as real human or agent actors."
+  default_prompt: "Use $exploratory-qa-session to run an exploratory QA session on this product."

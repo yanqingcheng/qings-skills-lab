@@ -33,10 +33,10 @@ one of:
 - **The caller.** Accepting or rejecting individual findings along the way is adjudication and
   does not disqualify it. Where it has a reviser's report, it reads the current artefact first.
 - **An independent model** — a reviewer that made no edits, has not seen the reviser's reasoning,
-  and was not briefed in a way that steers the verdict. Prefer a different model family from
-  the reviser's, if one is available, since reviewers from the same family share blind spots. A fresh same-model agent with a
-  different brief is a weaker substitute; if you use one, say so in the verdict. Role-play
-  personas inside the reviser's own context are not independent.
+  and was not briefed in a way that steers the verdict. Prefer a different model family from the
+  reviser's, if one is available, since reviewers from the same family share blind spots. A fresh
+  same-model agent with a different brief is a weaker substitute; if you use one, say so in the
+  verdict. Role-play personas inside the reviser's own context are not independent.
 
 The judge gets the artefact, the framing (scope, what good looks like, the meaningful line) and
 the trajectory (angles, models and briefs tried, with per-round counts); finding contents,
@@ -45,13 +45,12 @@ dispositions and the reviser's reasoning are withheld until after its own pass.
 The judge answers two questions, not one:
 
 1. **Did the latest rounds find meaningful issues?** Any accepted meaningful finding means another
-   cycle.
-   Polish does not; it may be fixed after the verdict without reopening the loop.
+   cycle. Polish does not; it may be fixed after the verdict without reopening the loop.
 2. **Which angles are still missing?** Whoever briefs the reviewers also chooses their angles, and
    a clean round from an angle already tried is weak evidence. If the judge can see an untried
-   angle that could plausibly find something — a different model family, a different high-level brief, a
-   reader or user the reviews have not simulated, a seam between parts — it names it (and runs it
-   if it can) before calling asymptote.
+   angle that could plausibly find something — a different model family, a different high-level
+   brief, a reader or user the reviews have not simulated, a seam between parts — it names it (and
+   runs it if it can) before calling asymptote.
 
 **If you edited the artefact**, do not declare asymptote. Either get an independent judge and
 report its verdict, or hand back what [What to hand back](#what-to-hand-back) lists, marked *ready
@@ -59,11 +58,12 @@ for a convergence verdict*, so your caller decides.
 
 **No subagents available** (no one to dispatch reviewers to): first try launching a fresh process
 with only the artefact and a brief — for example `claude -p` or `codex exec` — since that is closer
-to independent than anything done in your own context. Failing that, run the loop yourself: keep
-review passes separate from fix passes, vary the review briefs between cycles, and make sure the
-re-review in step 4 is a separate pass rather than a check of your own fixes. A fresh process on a
-different model family may report its verdict as the independent judge. If you fell back to your own
-context, hand back as *ready for a convergence verdict, no independent reviewer was available*.
+to independent than anything done in your own context. A fresh process on a different model family
+may report its verdict as the independent judge. Failing that, run the loop yourself: keep review
+passes separate from fix passes, vary the review briefs between cycles, and make sure the re-review
+of the fixed state is a separate pass rather than a check of your own fixes. If you fell back to
+your own context, hand back as *ready for a convergence verdict, no independent reviewer was
+available*.
 
 ## Frame the loop
 
