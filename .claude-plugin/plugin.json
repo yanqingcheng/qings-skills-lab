@@ -1,6 +1,6 @@
 {
   "name": "qings-skills-lab",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Experimental agent skills for ideation, testing, review and improvement loops. Potentially untested.",
   "author": {
     "name": "Yanqing Cheng"
